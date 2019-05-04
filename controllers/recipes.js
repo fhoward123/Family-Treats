@@ -1,19 +1,19 @@
-//___________________
-//Dependencies
-//___________________
+// =======================================
+//              DEPENDENCIES
+// =======================================
 //require express so we can use router
 const express = require('express');
 const recipes = express.Router();
 
-//___________________
-//Models
-//___________________
+// =======================================
+//                 MODELS
+// =======================================
 //get access to the Recipe model
 const Recipe  = require('../models/recipes.js');
 
-//___________________
-// 7 RESTful Routes
-//___________________
+// =======================================
+//            7 RESTful ROUTES
+// =======================================
 // Index  : GET    '/recipes'          1/7
 // Show   : GET    '/recipes/:id'      2/7
 // New    : GET    '/recipes/new'      3/7
@@ -21,7 +21,17 @@ const Recipe  = require('../models/recipes.js');
 // Edit   : GET    '/recipes/:id/edit' 5/7
 // Update : PUT    '/recipes/:id'      6/7
 // Delete : DELETE '/recipes/:id'      7/7
-//-----------------------------------------//
+// =======================================
+
+// Index  : GET    '/recipes'          1/7
+// recipes.get( '/', function(req, res) {
+//     console.log('Inside GET "index" route in recipes.js');
+//     Recipe.find( {}, function(err, recipes) {
+//         console.log('recipes = ', recipes);
+//         if (err) { console.log(err); }
+//         res.render ( 'app/index.ejs', { recipes: recipes } );
+//     });
+// });
 
 // New    : GET    '/recipes/new'      3/7
 // Order matters! must be above /recipes/:id or else this
@@ -37,7 +47,7 @@ recipes.get('/new', function(req, res) {
         );
     }
     else {
-        console.log('Current user is NOT logged in... Redirecting...')
+        console.log('Current user is NOT logged in... Redirecting to /sessions/new...')
         res.redirect('/sessions/new');
     }
 })
@@ -61,6 +71,7 @@ recipes.get ('/:id', function(req, res) {
     console.log('Inside GET ("recipe show") route in recipes.js');
     Recipe.findById( req.params.id, function(err, foundRecipe) {
         if (err) { console.log ( 'Error retrieving recipe', err.message ); }
+        console.log('Rendering recipe via app/recipes/show.ejs: ', foundRecipe);
         res.render ( 'app/recipes/show.ejs', { recipe: foundRecipe } );
     });
 });

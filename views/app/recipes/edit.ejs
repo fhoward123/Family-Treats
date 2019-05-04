@@ -15,11 +15,12 @@
             <input type="text" name="name" value="<%=recipe.name%>">
             <label for="img">Image: </label>
             <input type="text" name="image" value="<%=recipe.image%>">
-            <label for="description">Description: </label>
-            <textarea id="description" name="description"><%=recipe.description%></textarea>
+            <label for="directions">Directions: </label>
+            <textarea id="directions" name="directions"><%=recipe.directions%></textarea>
             <label for="tags">Tags: </label>
             <input type="text" name="tags" value="<%=recipe.tags%>">
             <input type="submit" name="submit" value="submit" class="edit-button">
+            <button class="back-btn" onclick="location.href='/app/'" type="button">CANCEL</button>
           </form>
           <h6></h6>
           <img src="<%= recipe.image %>" alt="An image of <%= recipe.name %>" />

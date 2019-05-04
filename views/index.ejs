@@ -4,6 +4,7 @@
         <% include ./partials/head.ejs %>
     </head>
     <body>
+        <div class="bg">
         <div class="container">
             <h1><% if (currentUser) { %>
                 Hello <%=currentUser.username%>!
@@ -15,11 +16,10 @@
                 <input type="submit" value="Logout" class="waves-effect waves-light btn"/>
             </form>
             <% } else { %>
-                <h2>Please </h2>
                 <a class="waves-effect waves-light btn" href="/users/new">Sign Up</a>
-                <h3>or</h3>
                 <a class="waves-effect waves-light btn" href="/sessions/new">Log In</a>
             <% } %>
+        </div>
         </div>
     </body>
 </html>

@@ -97,10 +97,18 @@ const usersController = require('./controllers/users.js');
 app.use('/users', usersController);
 
 // =======================================
+//                 MODELS
+// =======================================
+// Get access to the Recipe model
+const Recipe = require('./models/recipes.js');
+
+// =======================================
 //                 ROUTES
 // =======================================
+
+// Index  : GET    '/recipes'          1/7
 app.get('/', function(req, res) {
-    console.log('Inside base INDEX route in server.js');
+    console.log('Inside INDEX route (/recipes) in server.js');
     res.render('index.ejs', {
         currentUser: req.session.currentUser
     });
@@ -110,9 +118,16 @@ app.get('/app', function(req, res) {
     console.log('Inside "app" route in server.js');
     // Display special index for logged in users
     if ( req.session.currentUser ) {
-        res.render('app/index.ejs');
+        Recipe.find( {}, function(err, recipes) {
+            console.log('recipes = ', recipes);
+            if (err) { console.log(err); }
+            console.log('Rendering to app/index.ejs from server.js');
+            res.render ( 'app/index.ejs', { recipes: recipes } );
+        });
+        // res.render('app/index.ejs');
     }
     else {
+        console.log('Redirecting to /sessions/new from server.js');
         res.redirect('/sessions/new');
     }
 });

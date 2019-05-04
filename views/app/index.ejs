@@ -4,6 +4,7 @@
     <% include ../partials/head.ejs %>
   </head>
   <body>
+      <div class="bg">
       <nav>
         <% include ../partials/nav.ejs %>
     </nav>
@@ -13,12 +14,13 @@
     </h2>
     <% if ( typeof recipes != 'undefined' ) { %>
         <% for ( let i = 0; i < recipes.length; i++ ) { %>
-            <li>
-        		<%=recipes[i].recipe%> - submitted by <%=recipes[i].username%>
-            </li>
+            <!-- <li> -->
+        		<%=recipes[i].name%> - From the kitchen of <%=recipes[i].username%>
+            <!-- </li> -->
             <br/>
         <% } %>
     <% } %>
     <% include ../partials/footer.ejs %>
+    </div>
   </body>
 </html>
