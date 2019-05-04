@@ -1,0 +1,124 @@
+/* Import  fonts */
+@import url('https://fonts.googleapis.com/css?family=Dosis|Nunito');
+/* font-family   : 'Nunito'; */
+
+body {
+    background: white;
+    font-family: 'Nunito';
+    text-align: center;
+}
+
+.red {
+    color: red;
+    padding: 0.2em;
+}
+.blue {
+    color: blue;
+}
+.thumbnail {
+    margin: 0.2em;
+}
+.thumbnail img {
+   margin: auto;
+   max-height: 120px;
+   max-width: 120px;
+}
+.thumb-wrap {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.show-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 320px;
+    border-radius: 12px;
+    margin: auto;
+    padding: 2em 0;
+}
+.new-form, .edit-form {
+    display: flex;
+    justify-content: center;
+    width: 320px;
+    border-radius: 12px;
+    margin: auto;
+    padding: 2em 0;
+}
+.show-form {
+    background-color: azure;
+    padding: 1em 0 0 0;
+}
+.new-form {
+    background-color: #dbf0f9;
+}
+.edit-form {
+    background-color: #e3e6ed;
+}
+.btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 260px;
+    margin: auto;
+    padding: 2em 0 0.5em 0;
+}
+.items {
+    margin: 2em 0.5em 0 0.5em;
+    background-color: #ede3d3;
+    display: flex;
+    flex-direction: column;
+    width: 140px;
+    border-radius: 12px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.big-pic {
+    padding: 1em 0 1em 0;
+}
+label {
+    text-align: left;
+    display: block;
+    vertical-align: middle;
+}
+.list-container {
+    width: 250px;
+    display: inline-block;
+    padding: 10px;
+    background-color: azure;
+    border-radius: 12px;
+}
+.delete-btn, .edit-btn, .back-btn, .buy-btn, .btn {
+    padding: 0.3em 0.4em 0.3em 0.4em;
+    background: azure;
+    border-radius: 8px;
+    width: 90px;
+}
+.btn {
+    width: 180px;
+    color: blue;
+}
+.buy-btn {
+    color: white;
+    background-color: blue;
+    position: relative;
+    left:35%;
+    padding: 1em 0;
+}
+.delete-btn {
+    color: white;
+    background-color: red;
+}
+.edit-btn {
+    color: green;
+}
+.back-btn {
+    color: black;
+}
+#add-btn {
+    font-size: 16px;
+}

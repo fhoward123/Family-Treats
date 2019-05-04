@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ../../partials/head.ejs %>
+    </head>
+    <body>
+        <nav>
+            <% include ../../partials/nav.ejs %>
+        </nav>
+        <div class="container">
+            <h1>Add Recipe</h1>
+            <div class="row">
+            <form class="col s12" action="/recipes" method="POST">
+                <div class="row">
+                    <div class="input-field s6">
+                        <label for="name">Recipe Name</label>
+                        <input type="text" name="name" value="" required>
+                    </div>
+                    <!-- <input placeholder="Recipe" id="message" type="text" class="validate" name="message" required> -->
+                    <div class="input-field s12">
+                        <label for="directions">Add a Recipe</label>
+                        <textarea id="directions" name="directions" class="materialize-textarea"></textarea>
+                    </div>
+                    <!-- currentUser.username needs to be put in db with message -->
+                    <!-- Have to use "hidden" type to include it with the form submission -->
+                    <div class="input-field s6">
+                        <label for="image">Image Path</label>
+                        <input type="text" name="image" value="">
+                    </div>
+                    <div class="input-field s6">
+                        <label for="tags">Tags</label>
+                        <input type="text" name="tags" value="">
+                    </div>
+                    <input type="hidden" value=<%=currentUser.username%> name="username">
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+                </button>
+            </form>
+        </div>
+        <% include ../../partials/footer.ejs %>
+    </body>
+</html>
