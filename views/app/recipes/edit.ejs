@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <% include ../../partials/head.ejs %>
-  </head>
-  <body>
+<head>
+    <% include ../../partials/head.ejs %>
+</head>
+<body>
     <nav>
-        <% include ../../partials/nav.ejs %>
+    <% include ../../partials/navFull.ejs %>
     </nav>
     <div class="container">
-      <h3>Edit Recipe</h3>
-        <div class="jumbo">
-          <form class="edit" action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
-            <label for="name">Name: </label>
-            <input type="text" name="name" value="<%=recipe.name%>">
-            <label for="img">Image: </label>
-            <input type="text" name="image" value="<%=recipe.image%>">
-            <label for="directions">Directions: </label>
-            <textarea id="directions" name="directions"><%=recipe.directions%></textarea>
-            <label for="tags">Tags: </label>
-            <input type="text" name="tags" value="<%=recipe.tags%>">
-            <input type="submit" name="submit" value="submit" class="edit-button">
-            <button class="back-btn" onclick="location.href='/app/'" type="button">CANCEL</button>
-          </form>
-          <h6></h6>
-          <img src="<%= recipe.image %>" alt="An image of <%= recipe.name %>" />
+        <h4>Edit Recipe</h4>
+        <div class="row">
+            <form class="" action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
+                <div class="input-field s6">
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" value="<%=recipe.name%>">
+                </div>
+                <br/>
+                <div class="input-field s6">
+                    <label for="img">Image: </label>
+                    <input type="text" name="image" value="<%=recipe.image%>">
+                </div>
+                <br/>
+                <div class="input-field s6">
+                    <label for="directions">Directions: </label>
+                    <textarea id="directions" name="directions"><%=recipe.directions%></textarea>
+                </div>
+                <br/>
+                <div class="input-field col s3">Tag:
+                    <select name="tag" class="browser-default">
+                      <option value="" selected><%=recipe.tag%></option>
+                      <option value="dinner">dinner</option>
+                      <option value="veggie">veggie</option>
+                      <option value="bread">bread</option>
+                      <option value="sweets">sweets</option>
+                      <option value="keto">keto</option>
+                    </select>
+                </div>
+                <div class="input-field s6">
+                    <input type="submit" name="submit" value="SUBMIT" class="btn waves-effect waves-light">
+                    <button class="btn waves-effect waves-light" onclick="location.href='/recipes/<%=recipe.id%>'" type="button">CANCEL</button>
+                </div>
+            </form>
+            <h6></h6>
+            <img src="<%= recipe.image %>" alt="An image of <%= recipe.name %>" />
         </div>
     </div>
+    <footer class="footer">
     <% include ../../partials/footer.ejs %>
-  </body>
+    </footer>
+</body>
 </html>

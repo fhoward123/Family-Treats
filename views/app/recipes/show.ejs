@@ -5,22 +5,27 @@
   </head>
   <body>
     <nav>
-        <% include ../../partials/nav.ejs %>
+        <% include ../../partials/navFull.ejs %>
     </nav>
     <div class="container">
-      <h3><%= recipe.name  %></h3>
+      <h4><%= recipe.name  %></h4>
         <div class="">
-            <img src="<%= recipe.image %>" alt="An image of <%= recipe.name %>" class=""/>
+            <img src="<%= recipe.image %>" alt="An image of <%= recipe.name %>" class="show"/>
             <p><%= recipe.directions %></p>
             <p>From the kitchen of <%= recipe.username %></p>
         </div>
-        <div class="admin-actions">
-          <a href="/recipes/<%=recipe.id%>/edit"><button type="button" name="button" class="edit-button">EDIT</button></a>
-          <form action="/recipes/<%=recipe.id%>?_method=DELETE" method="POST">
-            <button class="delete-button">DELETE</button>
-          </form>
+        <div class="btn-wrapper">
+            <% if ( recipe.username === owner ) { %>
+              <a href="/recipes/<%=recipe.id%>/edit"><button type="button" name="button" class="show-btn btn waves-effect waves-light">EDIT</button></a>
+              <form action="/recipes/<%=recipe.id%>?_method=DELETE" method="POST">
+                <!-- <button class="delete-button">DELETE</button> -->
+                <button class="show-btn btn waves-effect waves-light" onclick="location.href='/app/'" type="button">DELETE</button>
+              </form>
+            <% } %>
         </div>
     </div>
-    <% include ../../partials/footer.ejs %>
+    <footer class="footer">
+        <% include ../../partials/footer.ejs %>
+    </footer>
   </body>
 </html>

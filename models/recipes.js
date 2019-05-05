@@ -7,7 +7,10 @@ const recipeSchema = Schema(
         name: { type: String, required: true },
         directions: String,
         image: String,
-        tags: [String]
+        tag: {
+            type: String,
+            enum: ['dinner', 'veggie', 'bread', 'sweets', 'keto']
+        }
     }
 );
 

@@ -39,7 +39,7 @@ const Recipe  = require('../models/recipes.js');
 recipes.get('/new', function(req, res) {
     console.log('Inside "new" route in recipes.js');
     if ( req.session.currentUser ) {
-        console.log('current user', req.session.currentUser);
+        console.log('current user: ', req.session.currentUser);
         res.render('app/recipes/new.ejs',
             {
                 currentUser: req.session.currentUser
@@ -69,19 +69,40 @@ recipes.post('/', function(req, res) {
 // Show   : GET    '/recipes/:id'      2/7
 recipes.get ('/:id', function(req, res) {
     console.log('Inside GET ("recipe show") route in recipes.js');
-    Recipe.findById( req.params.id, function(err, foundRecipe) {
-        if (err) { console.log ( 'Error retrieving recipe', err.message ); }
-        console.log('Rendering recipe via app/recipes/show.ejs: ', foundRecipe);
-        res.render ( 'app/recipes/show.ejs', { recipe: foundRecipe } );
-    });
+    if ( req.session.currentUser ) {
+        Recipe.findById( req.params.id, function(err, foundRecipe) {
+            if (err) { console.log ( 'Error retrieving recipe', err.message ); }
+            console.log('Rendering recipe via app/recipes/show.ejs: ', foundRecipe);
+            console.log('Current login name: ', req.session.currentUser.username);
+            res.render ( 'app/recipes/show.ejs', {
+                recipe: foundRecipe,
+                owner: req.session.currentUser.username
+            });
+        });
+    }
+    else {
+        res.redirect('/recipes/' + req.params.id);
+    }
 });
 
 // Edit   : GET    '/recipes/:id/edit' 5/7
 recipes.get ('/:id/edit', function(req, res) {
     console.log('Inside GET ("recipe edit") route in recipes.js');
+    console.log('Looking for id: ', req.params.id);
     Recipe.findById( req.params.id, function(err, recipe) {
         if ( err ) { console.log (err); }
-        res.render ( 'app/recipes/edit.ejs', { recipe : recipe } );
+        if ( req.session.currentUser ) {
+            console.log(`Comparing '${req.session.currentUser.username}' with '${recipe.username}'`)
+            if ( req.session.currentUser.username === recipe.username ) {
+                res.render ( 'app/recipes/edit.ejs', { recipe : recipe } );
+            }
+            else {
+                res.redirect('/recipes/' + req.params.id);
+            }
+        }
+        else {
+            res.redirect('/recipes/' + req.params.id);
+        }
     });
 });
 
