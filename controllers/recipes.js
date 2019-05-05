@@ -23,15 +23,16 @@ const Recipe  = require('../models/recipes.js');
 // Delete : DELETE '/recipes/:id'      7/7
 // =======================================
 
-// Index  : GET    '/recipes'          1/7
-// recipes.get( '/', function(req, res) {
-//     console.log('Inside GET "index" route in recipes.js');
-//     Recipe.find( {}, function(err, recipes) {
-//         console.log('recipes = ', recipes);
-//         if (err) { console.log(err); }
-//         res.render ( 'app/index.ejs', { recipes: recipes } );
-//     });
-// });
+// Seed Route - Vist ONCE to populate database
+const recipeSeeds = require( '../models/seed.js');
+recipes.get('/seed/newrecipes/viaseedfile', function(req, res) {
+    Recipe.insertMany(recipeSeeds, function(err, recipes) {
+        if (err) { console.log(err); }
+        else {
+            res.send(recipes);
+        }
+    });
+});
 
 // New    : GET    '/recipes/new'      3/7
 // Order matters! must be above /recipes/:id or else this
@@ -40,11 +41,7 @@ recipes.get('/new', function(req, res) {
     console.log('Inside "new" route in recipes.js');
     if ( req.session.currentUser ) {
         console.log('current user: ', req.session.currentUser);
-        res.render('app/recipes/new.ejs',
-            {
-                currentUser: req.session.currentUser
-            }
-        );
+        res.render('app/recipes/new.ejs', { currentUser: req.session.currentUser });
     }
     else {
         console.log('Current user is NOT logged in... Redirecting to /sessions/new...')
