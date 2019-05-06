@@ -17,7 +17,7 @@ body {
     margin: auto;
     margin-top: 7em;
     width: 300px;
-    background-color: pink;
+    /* background-color: pink; */
     padding: 1em 0 3em 0;
 }
 .top-margin {
@@ -27,12 +27,13 @@ body {
     margin-top: 3em;
 }
 .cat-container {
-    /* background-color: blue; */
+    background-color: blue;
     display: flex;
-    margin: 0 0 2em 0;
+    flex-direction: row;
+    margin: 2em 0 2em 0;
 }
 .pic {
-    /* background-color: green; */
+    background-color: green;
     height: 224px;
     width: 298px;
 }
@@ -43,7 +44,7 @@ body {
 .desc {
     background-color: red;
     padding: 0 2em;
-    width: 170vh;
+    width: 250px;
 }
 .top-nav {
     background-color: #ee6e73;
