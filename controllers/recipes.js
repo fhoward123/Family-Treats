@@ -23,17 +23,6 @@ const Recipe  = require('../models/recipes.js');
 // Delete : DELETE '/recipes/:id'      7/7
 // =======================================
 
-// Seed Route - Vist ONCE to populate database
-const recipeSeeds = require( '../models/seed.js');
-recipes.get('/seed/newrecipes/viaseedfile', function(req, res) {
-    Recipe.insertMany(recipeSeeds, function(err, recipes) {
-        if (err) { console.log(err); }
-        else {
-            res.send(recipes);
-        }
-    });
-});
-
 // New    : GET    '/recipes/new'      3/7
 // Order matters! must be above /recipes/:id or else this
 // route will never get hit
@@ -61,6 +50,25 @@ recipes.post('/', function(req, res) {
         res.redirect( '/recipes/' + createdRecipe.id );
         // res.render('app/index.ejs', {});
     });
+});
+
+// Use to find all recipes by specific tag
+recipes.get ('/search/:tag', function(req, res) {
+    console.log('Inside GET ("search by tag") route in recipes.js');
+    if ( req.session.currentUser ) {
+        Recipe.find({tag: req.params.tag}, function(err, recipes) {
+            if (err) {
+                console.log(`Something went wrong with data query!  (${err.message})`);
+            }
+            else {
+                console.log(`\nQuery result:\n\n ${recipes}`);
+            }
+            res.render ( 'app/recipes/listAll.ejs', {
+                recipes: recipes,
+                owner: req.session.currentUser.username
+            });
+        });
+    }
 });
 
 // Show   : GET    '/recipes/:id'      2/7

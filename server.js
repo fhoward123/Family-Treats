@@ -114,6 +114,22 @@ app.get('/', function(req, res) {
     });
 });
 
+app.get('/about', function (req, res) {
+    res.send('About family trEATs');
+})
+
+// Seed Route - Visit ONCE to populate database
+const recipeSeeds = require( './models/seed.js');
+app.get('/seed/newrecipes', async function(req, res) {
+// recipes.get('/seed/newrecipes/viaseedfile', function(req, res) {
+    Recipe.insertMany(recipeSeeds, function(err, recipes) {
+        if (err) { console.log(err); }
+        else {
+            res.send(recipes);
+        }
+    });
+});
+
 app.get('/app', function(req, res) {
     console.log('Inside "app" route in server.js');
     // Display special index for logged in users

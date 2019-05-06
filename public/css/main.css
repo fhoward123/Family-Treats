@@ -30,6 +30,7 @@ body {
     background-color: blue;
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     margin: 2em 0 2em 0;
 }
 .pic {
@@ -37,15 +38,16 @@ body {
     height: 224px;
     width: 298px;
 }
+.desc {
+    background-color: red;
+    padding: 0 2em;
+    width: 500px;
+}
 .small-pic {
     height: 224px;
     width: 298px;
 }
-.desc {
-    background-color: red;
-    padding: 0 2em;
-    width: 250px;
-}
+
 .top-nav {
     background-color: #ee6e73;
     display: flex;

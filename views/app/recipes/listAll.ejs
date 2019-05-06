@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <% include ../../partials/head.ejs %>
+    </head>
+    <body>
+        <div>
+            <nav>
+                <% include ../../partials/navFull.ejs %>
+            </nav>
+        </div>
+        <main>
+            <div class="">
+                <h1>Matching Recipes</h1>
+                <div class="thumb-wrap">
+                    <% for ( let i = 0; i < recipes.length; i++ ) { %>
+                        <!-- listAll route -->
+                        <p>
+                            <a class="thumbnail hovertext" href="/recipes/<%=i%>">
+                                <img title=<%=recipes[i].name%> src="<%=recipes[i].image%>" alt="<%=recipes[i].name%>">
+                            </a>
+                        </p>
+                    <% } %>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <% include ../../partials/footer.ejs %>
+        </footer>
+    </body>
+</html>
