@@ -105,14 +105,6 @@ h4 {
     width: 672px;
 }
 
-/*
-.red {
-    color: red;
-    padding: 0.2em;
-}
-.blue {
-    color: blue;
-}
 .thumbnail {
     margin: 0.2em;
 }
@@ -127,6 +119,16 @@ h4 {
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+/*
+.red {
+    color: red;
+    padding: 0.2em;
+}
+.blue {
+    color: blue;
+}
+
 .show-form {
     display: flex;
     flex-direction: column;
