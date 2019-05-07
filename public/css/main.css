@@ -190,6 +190,7 @@ a {
     flex-direction: row;
     width: 380px;
     margin: auto;
+    margin-bottom: 5em;
     padding: 1.5em;
 }
 .show-btn {
