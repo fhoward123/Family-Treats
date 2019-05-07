@@ -1,6 +1,14 @@
 /* Import  fonts */
 @import url('https://fonts.googleapis.com/css?family=Dosis|Nunito');
 /* font-family   : 'Nunito'; */
+@import url('https://fonts.googleapis.com/css?family=Artifika|Handlee|Just+Another+Hand|Patrick+Hand|Sacramento|Shadows+Into+Light|Sofia');
+/* font-family: 'Artifika', serif;
+font-family: 'Handlee', cursive;
+font-family: 'Just Another Hand', cursive;
+font-family: 'Patrick Hand', cursive;
+font-family: 'Sacramento', cursive;
+font-family: 'Shadows Into Light', cursive;
+font-family: 'Sofia', cursive; */
 
 body {
     /* background-image: url("https://i.imgur.com/zM3HMUV.jpg"); */
@@ -14,9 +22,23 @@ body {
     height: 100%;
     /* background-color: azure; */
 }
+h4 {
+    font-family: 'Nunito', cursive;
+}
+.h4-fancy {
+    font-family: 'Sofia', cursive;
+}
+.recipe-name {
+    font-family: 'Sacramento', cursive;
+    font-size: 40px;
+}
+h7 {
+    font-family: 'Patrick Hand', cursive;
+}
 .recipe {
     justify-content: center;
-    font-family: 'Nunito';
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 18px;
     overflow-wrap: normal;
     word-break: break-all
 }
@@ -86,6 +108,7 @@ body {
     /* background-color: purple; */
     display: flex;
     flex-direction: column;
+    font-family: 'Handlee', cursive;
 }
 .add {
     padding: 0 0 0 0.5em;
@@ -99,6 +122,7 @@ body {
 }
 .logout {
     background-color: #ee6e73;
+    font-family: 'Handlee', cursive;
     /* background-color: purple; */
     position: absolute;
     right: 1em;
@@ -106,6 +130,9 @@ body {
     border: none;
     color: white;
     cursor: pointer;
+}
+h1 {
+    font-family: 'Artifika', serif;
 }
 .main-title {
     font-size: 4em;
@@ -185,6 +212,10 @@ a {
     flex-direction: row;
     flex-wrap: wrap;
 }
+#directions {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 16px;
+}
 .select-edit {
     color: black;
 }
@@ -195,7 +226,7 @@ a {
 	display: block;
 	font-size: 14px;
 	font-family: sans-serif;
-	font-weight: 300;
+    font-weight: 300;
 	line-height: 1.3;
 	padding: .6em 1.4em .5em .8em;
 	width: 100%;
