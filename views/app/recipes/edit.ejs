@@ -8,25 +8,25 @@
     <% include ../../partials/navFull.ejs %>
     </nav>
     <div class="container">
-        <h4 class="h4-fancy">Edit Recipe</h4>
+        <h4 class="h4-fancy">edit recipe</h4>
         <div class="row">
             <form class="" action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
                 <div class="input-field s6">
-                    <label for="name">Name: </label>
+                    <label for="name">name: </label>
                     <input type="text" name="name" value="<%=recipe.name%>">
                 </div>
                 <br/>
                 <div class="input-field s6">
-                    <label for="img">Image: </label>
+                    <label for="img">image: </label>
                     <input type="text" name="image" value="<%=recipe.image%>">
                 </div>
                 <br/>
                 <div class="input-field s6">
-                    <label for="directions">Directions: </label>
+                    <label for="directions">directions: </label>
                     <textarea id="directions" name="directions"><%=recipe.directions%></textarea>
                 </div>
                 <br/>
-                <div class="input-field col s3">Tag:
+                <div class="input-field col s3">tag:
                     <select name="tag" class="select select-edit">
                       <option value="<%=recipe.tag%>" selected><%=recipe.tag%></option>
                       <option value="dinner">dinner</option>
@@ -37,8 +37,8 @@
                     </select>
                 </div>
                 <div class="input-field s6">
-                    <input type="submit" name="submit" value="SUBMIT" class="btn waves-effect waves-light">
-                    <button class="btn waves-effect waves-light btn-font" onclick="location.href='/recipes/<%=recipe.id%>'" type="button">CANCEL</button>
+                    <input type="submit" name="submit" value="submit" class="btn waves-effect waves-light">
+                    <button class="btn waves-effect waves-light btn-font" onclick="location.href='/recipes/<%=recipe.id%>'" type="button">cancel</button>
                 </div>
             </form>
             <h6></h6>

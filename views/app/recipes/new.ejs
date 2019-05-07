@@ -8,28 +8,28 @@
             <% include ../../partials/navFull.ejs %>
         </nav>
         <div class="container">
-            <h4 class="h4-fancy">Add Recipe</h4>
+            <h4 class="h4-fancy">add a recipe</h4>
             <div class="row">
             <form class="col s12" action="/recipes" method="POST">
                 <div class="row">
                     <div class="input-field s6">
-                        <label for="name">Recipe Name</label>
+                        <label for="name">recipe name</label>
                         <input type="text" name="name" value="" required>
                     </div>
                     <!-- <input placeholder="Recipe" id="message" type="text" class="validate" name="message" required> -->
                     <div class="input-field s12">
-                        <label for="directions">Recipe Directions</label>
+                        <label for="directions">recipe directions</label>
                         <textarea id="directions" name="directions" class="materialize-textarea"></textarea>
                     </div>
                     <!-- currentUser.username needs to be put in db with message -->
                     <!-- Have to use "hidden" type to include it with the form submission -->
                     <div class="input-field s6">
-                        <label for="image">Image Path</label>
+                        <label for="image">image path</label>
                         <input type="text" name="image" value="">
                     </div>
                     <div class="input-field col s3">
                         <select name="tag" class="select select-new">
-                          <option value="" disabled selected>Select a tag</option>
+                          <option value="" disabled selected>select a tag</option>
                           <option value="dinner">dinner</option>
                           <option value="veggie">veggie</option>
                           <option value="bread">bread</option>
@@ -39,10 +39,10 @@
                     </div>
                     <input type="hidden" value=<%=currentUser.username%> name="submitter">
                     <br/>
-                    <button class="btn waves-effect waves-light btn-font show-btn" type="submit" name="action">Submit
+                    <button class="btn waves-effect waves-light btn-font show-btn" type="submit" name="action">submit
                         <i class="material-icons right">send</i>
                     </button>
-                    <button class="btn waves-effect waves-light btn-font show-btn" onclick="location.href='/app/'" type="button">CANCEL
+                    <button class="btn waves-effect waves-light btn-font show-btn" onclick="location.href='/app/'" type="button">cancel
                         <i class="material-icons">cancel</i>
                     </button>
                 </div>

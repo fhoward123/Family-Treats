@@ -9,21 +9,26 @@
     </nav>
     <div class="container">
         <h4 class="recipe-name"><%= recipe.name %></h4>
-        <h7>From the kitchen of <%= recipe.submitter %></h7>
+        <h7>from the kitchen of <%= recipe.submitter %></h7>
     </div>
     <div class="show-container">
         <div class="medium-pic">
             <img src="<%= recipe.image %>" alt="An image of <%= recipe.name %>" class="show"/>
         </div>
         <div class="dir-container">
-            <pre><span class="recipe"><%= recipe.directions %></span></pre>
+            <!-- <div class="recipe"><pre class="recipe"><!%= recipe.directions %></pre></div> -->
+            <span class="recipe">
+                <% for ( let i = 0; i < recipeAry.length; i++ ) { %>
+                <%= recipeAry[i] %> <br/>
+                <%}%>
+            </span>
         </div>
     </div>
     <div class="btn-wrapper">
         <% if ( recipe.submitter === currentUser  ||  currentUser === "Karen" ) { %>
-            <a href="/recipes/<%=recipe.id%>/edit"><button type="button" name="button" class="show-btn btn waves-effect waves-light btn-font">EDIT</button></a>
+            <a href="/recipes/<%=recipe.id%>/edit"><button type="button" name="button" class="show-btn btn waves-effect waves-light btn-font">edit</button></a>
             <form class="col s12" action="/recipes/<%=recipe.id%>/<%=recipe.tag%>?_method=DELETE" method="POST">
-                <input type="submit" name="submit" value="DELETE" class="show-btn btn waves-effect waves-light btn-font">
+                <input type="submit" name="submit" value="delete" class="show-btn btn waves-effect waves-light btn-font">
             </form>
         <% } %>
     </div>

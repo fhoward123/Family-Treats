@@ -47,8 +47,12 @@ h7 {
     justify-content: center;
     font-family: 'Shadows Into Light', cursive;
     font-size: 18px;
-    overflow-wrap: normal;
-    word-break: break-all
+    /* overflow-wrap: normal;
+    word-break: break-all; */
+    /* max-width: 400px; */
+    max-width: 28em;
+    display: block;
+    overflow: visible;
 }
 .medium-pic {
     margin-left: auto;
@@ -101,11 +105,9 @@ h7 {
 .dir-container {
     margin: 0 2em 2em 2em;
     /* background-color: orange; */
-    width: 400px;
+    /* width: 400px; */
+    max-width: 28em;
     padding: 0 2em 2em 2em;
-    overflow-wrap: normal;
-    word-break: break-all;
-    overflow: visible;
 }
 .small-pic {
     height: 224px;

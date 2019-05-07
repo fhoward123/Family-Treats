@@ -83,8 +83,11 @@ recipes.get ('/:id', function(req, res) {
             console.log('Rendering recipe via app/recipes/show.ejs: ', foundRecipe);
             console.log('Recipe submitter: ', foundRecipe.username);
             console.log('Current login name: ', req.session.currentUser.username);
+            const recipeAry = foundRecipe.directions.split('\r\n');
+            console.log(`\n\nSplit result:\n ${recipeAry}`);
             res.render ( 'app/recipes/show.ejs', {
                 recipe: foundRecipe,
+                recipeAry: recipeAry,
                 currentUser: req.session.currentUser.username
             });
         });
