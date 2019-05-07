@@ -60,14 +60,17 @@ recipes.get ('/search/:tag', function(req, res) {
             if (err) {
                 console.log(`Something went wrong with data query!  (${err.message})`);
             }
-            else {
-                console.log(`\nQuery result:\n\n ${recipes}`);
-            }
+            // else {
+            //     console.log(`\nQuery result:\n\n ${recipes}`);
+            // }
             res.render ( 'app/recipes/listAll.ejs', {
                 recipes: recipes,
                 owner: req.session.currentUser.username
             });
         });
+    }
+    else {
+        res.redirect('/');
     }
 });
 
@@ -78,15 +81,17 @@ recipes.get ('/:id', function(req, res) {
         Recipe.findById( req.params.id, function(err, foundRecipe) {
             if (err) { console.log ( 'Error retrieving recipe', err.message ); }
             console.log('Rendering recipe via app/recipes/show.ejs: ', foundRecipe);
+            console.log('Recipe submitter: ', foundRecipe.username);
             console.log('Current login name: ', req.session.currentUser.username);
             res.render ( 'app/recipes/show.ejs', {
                 recipe: foundRecipe,
-                owner: req.session.currentUser.username
+                currentUser: req.session.currentUser.username
             });
         });
     }
     else {
-        res.redirect('/recipes/' + req.params.id);
+        // res.redirect('/recipes/' + req.params.id);
+        res.redirect('/');
     }
 });
 
@@ -98,12 +103,7 @@ recipes.get ('/:id/edit', function(req, res) {
         if ( err ) { console.log (err); }
         if ( req.session.currentUser ) {
             console.log(`Comparing '${req.session.currentUser.username}' with '${recipe.username}'`)
-            if ( req.session.currentUser.username === recipe.username ) {
-                res.render ( 'app/recipes/edit.ejs', { recipe : recipe } );
-            }
-            else {
-                res.redirect('/recipes/' + req.params.id);
-            }
+            res.render ( 'app/recipes/edit.ejs', { recipe : recipe } );
         }
         else {
             res.redirect('/recipes/' + req.params.id);
@@ -125,9 +125,9 @@ recipes.put('/:id', function(req, res) {
 // Delete : DELETE '/recipes/:id'      7/7
 recipes.delete ('/:id', function(req, res) {
     console.log('Inside DELETE ("recipe delete") route in recipes.js');
+    console.log('Deleting id: ', req.params.id);
     Recipe.findByIdAndRemove( req.params.id, function(err, recipe) {
         if ( err ) { console.log(err); }
-        // res.redirect ( '/recipes' );
         res.redirect ( '/' );
     });
 });

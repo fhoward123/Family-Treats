@@ -3,13 +3,14 @@ const Schema   = mongoose.Schema;
 
 const recipeSchema = Schema(
     {
-        username: String,
+        submitter: String,
         name: { type: String, required: true },
         directions: String,
         image: String,
         tag: {
             type: String,
-            enum: ['dinner', 'veggie', 'bread', 'sweets', 'keto']
+            enum: ['dinner', 'veggie', 'bread', 'sweets', 'keto'],
+            required: true
         }
     }
 );

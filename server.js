@@ -6,6 +6,7 @@ const app             = express();
 const methodOverride  = require('method-override');
 const mongoose        = require('mongoose');
 require('dotenv').config();
+const morgan = require('morgan');
 
 // =======================================
 //                  PORT
@@ -52,6 +53,7 @@ process.on('SIGINT', function() {
 //              MIDDLEWARE
 // =======================================
 
+app.use(morgan('tiny'));
 // Use public folder for static assets
 app.use(express.static('public'));
 
@@ -135,7 +137,7 @@ app.get('/app', function(req, res) {
     // Display special index for logged in users
     if ( req.session.currentUser ) {
         Recipe.find( {}, function(err, recipes) {
-            console.log('recipes = ', recipes);
+            // console.log('recipes = ', recipes);
             if (err) { console.log(err); }
             console.log('Rendering to app/index.ejs from server.js');
             res.render ( 'app/index.ejs', { recipes: recipes } );

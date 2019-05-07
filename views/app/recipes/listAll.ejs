@@ -10,18 +10,16 @@
             </nav>
         </div>
         <main>
-            <div class="">
-                <h4>Matching Recipes</h4>
-                <div class="thumb-wrap">
-                    <% for ( let i = 0; i < recipes.length; i++ ) { %>
-                        <!-- listAll route -->
-                        <p>
-                            <a class="thumbnail hovertext" href="/recipes/<%=recipes[i]._id%>">
-                                <img title=<%=recipes[i].name%> src="<%=recipes[i].image%>" alt="<%=recipes[i].name%>">
-                            </a>
-                        </p>
-                    <% } %>
-                </div>
+            <h4>Matching Recipes</h4>
+            <div class="thumb-wrap">
+                <% for ( let i = 0; i < recipes.length; i++ ) { %>
+                    <!-- listAll route -->
+                    <p>
+                        <a class="thumbnail hovertext" href="/recipes/<%=recipes[i]._id%>">
+                            <img title=<%=recipes[i].name%> src="<%=recipes[i].image%>" alt="<%=recipes[i].name%>">
+                        </a>
+                    </p>
+                <% } %>
             </div>
         </main>
         <footer class="footer">

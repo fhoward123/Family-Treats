@@ -28,7 +28,7 @@
                 <br/>
                 <div class="input-field col s3">Tag:
                     <select name="tag" class="browser-default">
-                      <option value="" selected><%=recipe.tag%></option>
+                      <option value="<%=recipe.tag%>" selected><%=recipe.tag%></option>
                       <option value="dinner">dinner</option>
                       <option value="veggie">veggie</option>
                       <option value="bread">bread</option>
@@ -42,7 +42,7 @@
                 </div>
             </form>
             <h6></h6>
-            <img src="<%= recipe.image %>" alt="An image of <%= recipe.name %>" />
+            <img class="small-pic" src="<%= recipe.image %>" alt="An image of <%= recipe.name %>" />
         </div>
     </div>
     <footer class="footer">
