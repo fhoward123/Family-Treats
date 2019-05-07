@@ -123,13 +123,13 @@ recipes.put('/:id', function(req, res) {
 });
 
 // Delete : DELETE '/recipes/:id'      7/7
-recipes.delete ('/:id', function(req, res) {
+recipes.delete ('/:id/:tag', function(req, res) {
     console.log('Inside DELETE ("recipe delete") route in recipes.js');
     console.log('Deleting id: ', req.params.id);
     console.log('req.params: ', req.params);
     Recipe.findByIdAndRemove( req.params.id, function(err, recipe) {
         if ( err ) { console.log(err); }
-        res.redirect ( '/' );
+        res.redirect ( `/recipes/search/${req.params.tag}` );
     });
 });
 

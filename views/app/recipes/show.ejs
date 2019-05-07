@@ -22,7 +22,7 @@
     <div class="btn-wrapper">
         <% if ( recipe.submitter === currentUser  ||  currentUser === "Karen" ) { %>
             <a href="/recipes/<%=recipe.id%>/edit"><button type="button" name="button" class="show-btn btn waves-effect waves-light btn-font">EDIT</button></a>
-            <form class="col s12" action="/recipes/<%=recipe.id%>?_method=DELETE" method="POST">
+            <form class="col s12" action="/recipes/<%=recipe.id%>/<%=recipe.tag%>?_method=DELETE" method="POST">
                 <input type="submit" name="submit" value="DELETE" class="show-btn btn waves-effect waves-light btn-font">
             </form>
         <% } %>
