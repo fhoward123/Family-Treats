@@ -11,16 +11,18 @@
         </div>
         <div class="bg"></div>
             <div class="">
-                <h3 class="">
+                <h3 class="greeting">
                     <% if (currentUser) { %>
                     Hello <%=currentUser.username%>!
                 </h3>
                 <h4>
-                    <a class="waves-effect waves-light btn" href="/app">Enter the Kitchen</a>
+                    <a class="waves-effect waves-light btn greeting" href="/app">Enter the Kitchen</a>
                 </h4>
                     <% } else { %>
+                        <h4>To gain entry to the Kitchen you must</h4>
                         <div class="btn-holder">
                             <a class="waves-effect waves-light btn" href="/users/new">Sign Up</a>
+<h6>or</h6>
                             <a class="waves-effect waves-light btn" href="/sessions/new">Log In</a>
                         </div>
                     <% } %>
