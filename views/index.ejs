@@ -13,7 +13,7 @@
             <div class="">
                 <h3 class="greeting">
                     <% if (currentUser) { %>
-                    hello <%=currentUser.username%>!
+                    hello, <%=currentUser.username%>!
                 </h3>
                 <h4>
                     <a class="waves-effect waves-light btn greeting" href="/app">enter the kitchen</a>
@@ -22,7 +22,7 @@
                         <h4>to gain entry to the kitchen you must</h4>
                         <div class="btn-holder">
                             <a class="waves-effect waves-light btn" href="/users/new">sign up</a>
-<h6>or</h6>
+                            <h6>or</h6>
                             <a class="waves-effect waves-light btn" href="/sessions/new">log in</a>
                         </div>
                     <% } %>
