@@ -37,7 +37,7 @@
                           <option value="keto">keto</option>
                         </select>
                         <% if (errorMsg) { %>
-                            <%=errorMsg%>
+                            <span class="error col s12"><%=errorMsg%></span>
                         <% } %>
                     </div>
                     <input type="hidden" value=<%=currentUser.username%> name="submitter">

@@ -32,7 +32,7 @@ recipes.get('/new', function(req, res) {
         console.log('current user: ', req.session.currentUser);
         res.render('app/recipes/new.ejs', {
             currentUser: req.session.currentUser,
-            errorMsg: ''
+            errorMsg: '' // Create variable for possible error content later
         });
     }
     else {
@@ -69,13 +69,13 @@ recipes.get ('/search/:tag', function(req, res) {
             if (err) {
                 console.log(`Something went wrong with data query!  (${err.message})`);
             }
-            // else {
-            //     console.log(`\nQuery result:\n\n ${recipes}`);
-            // }
-            res.render ( 'app/recipes/listAll.ejs', {
-                recipes: recipes,
-                owner: req.session.currentUser.username
-            });
+            else {
+                // console.log(`\nQuery result:\n\n ${recipes}`);
+                res.render ( 'app/recipes/listAll.ejs', {
+                    recipes: recipes,
+                    owner: req.session.currentUser.username
+                });
+            }
         });
     }
     else {
@@ -89,16 +89,18 @@ recipes.get ('/:id', function(req, res) {
     if ( req.session.currentUser ) {
         Recipe.findById( req.params.id, function(err, foundRecipe) {
             if (err) { console.log ( 'Error retrieving recipe', err.message ); }
-            console.log('Rendering recipe via app/recipes/show.ejs: ', foundRecipe);
-            console.log('Recipe submitter: ', foundRecipe.username);
-            console.log('Current login name: ', req.session.currentUser.username);
-            const recipeAry = foundRecipe.directions.split('\r\n');
-            console.log(`\n\nSplit result:\n ${recipeAry}`);
-            res.render ( 'app/recipes/show.ejs', {
-                recipe: foundRecipe,
-                recipeAry: recipeAry,
-                currentUser: req.session.currentUser.username
-            });
+            else {
+                console.log('Rendering recipe via app/recipes/show.ejs: ', foundRecipe);
+                // console.log('Recipe submitter: ', foundRecipe.username);
+                // console.log('Current login name: ', req.session.currentUser.username);
+                const recipeAry = foundRecipe.directions.split('\r\n');
+                // console.log(`\n\nSplit result:\n ${recipeAry}`);
+                res.render ( 'app/recipes/show.ejs', {
+                    recipe: foundRecipe,
+                    recipeAry: recipeAry,
+                    currentUser: req.session.currentUser.username
+                });
+            }
         });
     }
     else {
@@ -112,8 +114,8 @@ recipes.get ('/:id/edit', function(req, res) {
     console.log('Inside GET ("recipe edit") route in recipes.js');
     console.log('Looking for id: ', req.params.id);
     Recipe.findById( req.params.id, function(err, recipe) {
-        if ( err ) { console.log (err); }
-        if ( req.session.currentUser ) {
+        if ( err ) { console.log(`Error searching for recipe id: ${req.params.id}!  (${err.message})`); }
+        else if ( req.session.currentUser ) {
             console.log(`Comparing '${req.session.currentUser.username}' with '${recipe.username}'`)
             res.render ( 'app/recipes/edit.ejs', { recipe : recipe } );
         }
@@ -129,8 +131,10 @@ recipes.put('/:id', function(req, res) {
     console.log('Updating db with: ', req.body);
     console.log('Updating ID: ', req.params.id);
     Recipe.findByIdAndUpdate( req.params.id, req.body, { new : true }, function(err, updatedRecipe) {
-        if ( err ) { console.log(err); }
-        res.redirect ( '/recipes/' + updatedRecipe.id );
+        if ( err ) { console.log(`Error updating recipe id: ${req.params.id}!  (${err.message})`); }
+        else {
+            res.redirect ( '/recipes/' + updatedRecipe.id );
+        }
     });
 });
 
@@ -140,8 +144,10 @@ recipes.delete ('/:id/:tag', function(req, res) {
     console.log('Deleting id: ', req.params.id);
     console.log('req.params: ', req.params);
     Recipe.findByIdAndRemove( req.params.id, function(err, recipe) {
-        if ( err ) { console.log(err); }
-        res.redirect ( `/recipes/search/${req.params.tag}` );
+        if ( err ) { console.log(`Error deleting recipe id: ${req.params.id}!  (${err.message})`); }
+        else {
+            res.redirect ( `/recipes/search/${req.params.tag}` );
+        }
     });
 });
 
