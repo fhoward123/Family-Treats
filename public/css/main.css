@@ -35,7 +35,7 @@ h4 {
 }
 .recipe-name {
     font-family: 'Sacramento', cursive;
-    font-size: 40px;
+    font-size: 50px;
 }
 h7 {
     font-family: 'Patrick Hand', cursive;
@@ -43,7 +43,7 @@ h7 {
 .recipe {
     justify-content: center;
     font-family: 'Shadows Into Light', cursive;
-    font-size: 18px;
+    font-size: 20px;
     max-width: 28em;
     display: block;
     overflow: visible;
@@ -55,12 +55,13 @@ h7 {
 .bg {
     margin: auto;
     margin-top: 7em;
-    width: 300px;
+    width: 700px;
     padding: 1em 0 3em 0;
     left: 0;
 }
 .index-container {
-
+    left: 0;
+    margin: auto;
 }
 .top-margin {
     margin-top: 4em;
@@ -68,6 +69,9 @@ h7 {
 .container {
     margin-top: 7em;
 }
+/* .per-container {
+    margin-top: 2em;
+} */
 .show-container {
     margin-top: 3em;
     display: flex;
@@ -78,12 +82,10 @@ h7 {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    width: 600px;
     margin: 2em 0 2em 0;
 }
 .desc {
     padding: 1em 2em;
-    width: 500px;
 }
 .pic {
     padding-top: 2em;
@@ -114,6 +116,7 @@ h7 {
     flex-direction: column;
     text-align: center;
     font-family: 'Handlee', cursive;
+    font-size: 17px;
     position: absolute;
     left: 1.5em;
 }
@@ -125,12 +128,16 @@ h7 {
 .logout {
     background-color: #ee6e73;
     font-family: 'Handlee', cursive;
+    font-size: 17px;
     position: absolute;
     right: 1em;
-    top: 2.8em;
+    top: 2.0em;
     border: none;
     color: white;
     cursor: pointer;
+}
+.p-summary {
+    font-size: 18px;
 }
 h1 {
     font-family: 'Artifika', serif;
@@ -220,7 +227,7 @@ a {
 }
 #directions {
     font-family: 'Shadows Into Light', cursive;
-    font-size: 16px;
+    font-size: 18px;
 }
 .select-edit {
     color: black;
