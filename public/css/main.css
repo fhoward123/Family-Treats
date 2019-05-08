@@ -123,11 +123,8 @@ h7 {
     font-size: 17px;
     position: absolute;
     left: 1.5em;
-}
-.add, .idx {
-    padding: 0;
-    max-height: 30px;
-    position: relative;
+    max-height: 100px;
+    line-height: 2.8em;
 }
 .logout {
     background-color: #ee6e73;
