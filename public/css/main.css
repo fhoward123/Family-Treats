@@ -50,6 +50,8 @@ h7 {
 }
 .medium-pic {
     margin: auto;
+    margin-top: 2em;
+    margin-right: 0;
     width: 360px;
     border-radius: 12px;
 }
@@ -86,7 +88,6 @@ h7 {
     margin: 2em 0 2em 0;
 }
 .desc {
-    /* padding: 1em 2em; */
     padding: 1em 0 2em 2em;
 }
 .pic {
@@ -96,9 +97,11 @@ h7 {
     border-radius: 12px;
 }
 .dir-container {
-    margin: 0 2em 2em 2em;
+    margin: auto;
+    margin-left: 0;
+    margin-top: 2em;
     max-width: 28em;
-    padding: 0 2em 2em 2em;
+    padding: 1em 1em 2em 3em;
 }
 .error {
     background-color: red;
