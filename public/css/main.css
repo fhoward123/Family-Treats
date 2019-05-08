@@ -149,17 +149,6 @@ h7 {
 h1 {
     font-family: 'Artifika', serif;
 }
-.main-title {
-    font-size: 4em;
-    margin: 0.4em 0 0.4em 32%;
-    color: white;
-    display: flex;
-    flex-basis: auto;
-    align-self: center;
-    justify-content: center;
-    text-align: center;
-    /* background-color: skyblue; */
-}
 .title {
     position:absolute;
     text-align:center;
@@ -167,11 +156,7 @@ h1 {
 }
 .main-title-full {
     font-size: 4em;
-    /* margin: 0.4em 0 0.4em 20%; */
     color: white;
-    /* display: flex;
-    flex-basis: auto;
-    align-self: center; */
     justify-content: center;
     text-align: center;
     /* background-color: skyblue; */
@@ -324,119 +309,3 @@ a {
          margin:0.2em auto;
     }
 }
-
-/* form {
-  position: relative;
-  display: inline-block;
-  max-width: 700px;
-  min-width: 500px;
-  box-sizing: border-box;
-  padding: 30px 25px;
-  background-color: azure;
-  border-radius: 40px;
-  margin: 40px 0;
-  left: 50%;
-  @include translate( -50% , 0 );
-} */
-/*
-.red {
-    color: red;
-    padding: 0.2em;
-}
-.blue {
-    color: blue;
-}
-
-.show-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 320px;
-    border-radius: 12px;
-    margin: auto;
-    padding: 2em 0;
-}
-.new-form, .edit-form {
-    display: flex;
-    justify-content: center;
-    width: 320px;
-    border-radius: 12px;
-    margin: auto;
-    padding: 2em 0;
-}
-.show-form {
-    background-color: azure;
-    padding: 1em 0 0 0;
-}
-.new-form {
-    background-color: #dbf0f9;
-}
-.edit-form {
-    background-color: #e3e6ed;
-}
-.btn-container {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    width: 260px;
-    margin: auto;
-    padding: 2em 0 0.5em 0;
-}
-.items {
-    margin: 2em 0.5em 0 0.5em;
-    background-color: #ede3d3;
-    display: flex;
-    flex-direction: column;
-    width: 140px;
-    border-radius: 12px;
-}
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.big-pic {
-    padding: 1em 0 1em 0;
-}
-label {
-    text-align: left;
-    display: block;
-    vertical-align: middle;
-}
-.list-container {
-    width: 250px;
-    display: inline-block;
-    padding: 10px;
-    background-color: azure;
-    border-radius: 12px;
-}
-.delete-btn, .edit-btn, .back-btn, .buy-btn, .btn {
-    padding: 0.3em 0.4em 0.3em 0.4em;
-    background: azure;
-    border-radius: 8px;
-    width: 90px;
-}
-.btn {
-    width: 180px;
-    color: blue;
-}
-.buy-btn {
-    color: white;
-    background-color: blue;
-    position: relative;
-    left:35%;
-    padding: 1em 0;
-}
-.delete-btn {
-    color: white;
-    background-color: red;
-}
-.edit-btn {
-    color: green;
-}
-.back-btn {
-    color: black;
-}
-#add-btn {
-    font-size: 16px;
-} */
