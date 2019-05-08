@@ -69,9 +69,6 @@ h7 {
 .container {
     margin-top: 7em;
 }
-/* .per-container {
-    margin-top: 2em;
-} */
 .show-container {
     margin-top: 3em;
     display: flex;
@@ -85,12 +82,13 @@ h7 {
     margin: 2em 0 2em 0;
 }
 .desc {
-    padding: 1em 2em;
+    /* padding: 1em 2em; */
+    padding: 1em 0 2em 2em;
 }
 .pic {
-    padding-top: 2em;
-    height: 224px;
-    width: 298px;
+    padding-top: 1em;
+    height: 340px;
+    width: 340px;
     border-radius: 12px;
 }
 .dir-container {
@@ -107,8 +105,9 @@ h7 {
     border-color: teal;
 }
 .small-pic {
-    height: 224px;
-    width: 298px;
+    padding-top: 1em;
+    height: 340px;
+    width: 340px;
     border-radius: 12px;
 }
 .nav-links {
