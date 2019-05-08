@@ -36,6 +36,9 @@
                           <option value="sweets">sweets</option>
                           <option value="keto">keto</option>
                         </select>
+                        <% if (errorMsg) { %>
+                            <%=errorMsg%>
+                        <% } %>
                     </div>
                     <input type="hidden" value=<%=currentUser.username%> name="submitter">
                     <br/>

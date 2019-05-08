@@ -30,7 +30,10 @@ recipes.get('/new', function(req, res) {
     console.log('Inside "new" route in recipes.js');
     if ( req.session.currentUser ) {
         console.log('current user: ', req.session.currentUser);
-        res.render('app/recipes/new.ejs', { currentUser: req.session.currentUser });
+        res.render('app/recipes/new.ejs', {
+            currentUser: req.session.currentUser,
+            errorMsg: ''
+        });
     }
     else {
         console.log('Current user is NOT logged in... Redirecting to /sessions/new...')
@@ -44,11 +47,17 @@ recipes.post('/', function(req, res) {
     console.log('req.body: ', req.body);
     Recipe.create(req.body, function(err, createdRecipe) {
         if (err) {
-            console.log(err);
+            console.log(`Something went wrong with the recipe submission!  (${err.message})`);
+            res.render('app/recipes/new.ejs', {
+                currentUser: req.session.currentUser,
+                errorMsg: err.message
+            });
         }
-        console.log(`\nPosted recipe: \n\n${createdRecipe}`);
-        res.redirect( '/recipes/' + createdRecipe.id );
-        // res.render('app/index.ejs', {});
+        else {
+            console.log(`\nPosted recipe: \n\n${createdRecipe}`);
+            res.redirect( '/recipes/' + createdRecipe.id );
+            // res.render('app/index.ejs', {});
+        }
     });
 });
 
