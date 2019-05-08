@@ -50,7 +50,6 @@ h7 {
 }
 .medium-pic {
     margin: auto;
-    margin-top: 2em;
     margin-right: 0;
     width: 360px;
     border-radius: 12px;
@@ -177,6 +176,7 @@ a {
     width: 200px;
     margin: auto;
     margin-bottom: 2em;
+    padding-top: 2em;
 }
 .btn-holder {
     font-family:'Roboto',sans-serif;
