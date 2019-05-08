@@ -111,7 +111,7 @@ h7 {
 .error {
     background-color: red;
     color: white;
-    margin: 0.2em 0 0 0;
+    margin: 0.5em 0 0 0;
     border-radius: 0.6em;
     border:0.15em solid rgba(255,255,255,0);
     border-color: teal;
@@ -125,17 +125,15 @@ h7 {
     /* background-color: purple; */
     display: flex;
     flex-direction: column;
+    text-align: center;
     font-family: 'Handlee', cursive;
+    position: absolute;
+    left: 1.5em;
 }
-.add {
-    padding: 0 0 0 0.5em;
-    /* background-color: lightgreen; */
-    max-height: 50px;
-}
-.idx {
-    padding: 0 0 0 1em;
-    /* background-color: darkgreen; */
-    max-height: 50px;
+.add, .idx {
+    padding: 0;
+    max-height: 30px;
+    position: relative;
 }
 .logout {
     background-color: #ee6e73;
@@ -162,23 +160,31 @@ h1 {
     text-align: center;
     /* background-color: skyblue; */
 }
+.title {
+    position:absolute;
+    text-align:center;
+    background-color:black;
+}
 .main-title-full {
     font-size: 4em;
-    margin: 0.4em 0 0.4em 25%;
+    /* margin: 0.4em 0 0.4em 20%; */
     color: white;
-    display: flex;
+    /* display: flex;
     flex-basis: auto;
-    align-self: center;
+    align-self: center; */
     justify-content: center;
     text-align: center;
     /* background-color: skyblue; */
+    margin: auto;
+    line-height: 1.65em;
+    vertical-align: middle;
 }
 .top-nav {
     background-color: #ee6e73;
     display: flex;
     max-height: 100px;
-    /* justify-content: left;
-    flex-direction: row; */
+    justify-content: center;
+    flex-direction: row;
 }
 a {
     text-decoration: none;

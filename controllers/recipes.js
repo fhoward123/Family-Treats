@@ -54,9 +54,15 @@ recipes.post('/', function(req, res) {
             });
         }
         else {
-            console.log(`\nPosted recipe: \n\n${createdRecipe}`);
-            res.redirect( '/recipes/' + createdRecipe.id );
-            // res.render('app/index.ejs', {});
+            if ( req.session.currentUser ) {
+                console.log(`\nPosted recipe: \n\n${createdRecipe}`);
+                res.redirect( '/recipes/' + createdRecipe.id );
+                // res.render('app/index.ejs', {});
+            }
+            else {
+                console.log('Current user is NOT logged in... Redirecting to /sessions/new...')
+                res.redirect('/sessions/new');
+            }
         }
     });
 });
