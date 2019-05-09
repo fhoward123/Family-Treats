@@ -16,10 +16,10 @@
             <img src="<%= recipe.image %>" alt="An image of <%= recipe.name %>" class="show"/>
         </div>
         <div class="dir-container">
-            <!-- <div class="recipe"><pre class="recipe"><!%= recipe.directions %></pre></div> -->
             <span class="recipe">
+                <!-- Recipe directions stored in array to enable line breaks where needed -->
                 <% for ( let i = 0; i < recipeAry.length; i++ ) { %>
-                <%= recipeAry[i] %> <br/>
+                    <%= recipeAry[i] %> <br/>
                 <%}%>
             </span>
         </div>
