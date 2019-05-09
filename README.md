@@ -20,6 +20,7 @@
 - MongoDB
 - Mongoose.js
 - bcrypt
+- Materialize framework
 - Incorporated full CRUD functionality based on MVC concept
 - RESTful routes
 
@@ -29,7 +30,6 @@ Click to access [family trEATs](https://familytreats.herokuapp.com/).
 - Outlined what each page would look like and what essential features would be incorporated to meet MVP.
 
 ## Planned Future Updates
-- Account management by administrator
 - Clean handling of a user trying to use a username already in the database
 - Allow users to display just their own recipes
-- Add an "About" page
+- Sort recipes
