@@ -1,12 +1,12 @@
 // =======================================
 //              DEPENDENCIES
 // =======================================
-const express         = require('express');
-const app             = express();
-const methodOverride  = require('method-override');
-const mongoose        = require('mongoose');
+const express        = require('express');
+const app            = express();
+const methodOverride = require('method-override');
+const mongoose       = require('mongoose');
+const morgan         = require('morgan');
 require('dotenv').config();
-const morgan = require('morgan');
 
 // =======================================
 //                  PORT
@@ -53,7 +53,9 @@ process.on('SIGINT', function() {
 //              MIDDLEWARE
 // =======================================
 
+// Log HTTP requests
 app.use(morgan('tiny'));
+
 // Use public folder for static assets
 app.use(express.static('public'));
 
@@ -66,8 +68,9 @@ app.use(methodOverride('_method'));
 // - if no data from forms it will return an empty object {}
 // The "extended: false" does not allow nested objects in query strings
 app.use(express.urlencoded({ extended: false }));
+
 // returns middleware that only parses JSON - may or may not need it depending on your project
-app.use(express.json());
+// app.use(express.json());
 
 // Setup up secure session (Must come BEFORE controllers)
 const session = require('express-session');
@@ -85,11 +88,10 @@ app.use(session({
 // =======================================
 //              CONTROLLERS
 // =======================================
-//Step 1/3 require the controller to be able to use the products routes
+// Step 1/3 require the controller to be able to use the recipes routes
+// Step 2/3 "app.use" this controller when `/recipes` path is visited
+// Note: step 3 is in controllers/recipes.js
 const recipesController = require ( './controllers/recipes' );
-
-//Step 2/3 app.use this controller and when `/products` is visted
-//Note, step 3 is in controllers/products.js
 app.use( '/recipes', recipesController );
 
 const sessionsController = require('./controllers/sessions.js');
@@ -125,7 +127,7 @@ const recipeSeeds = require( './models/seed.js');
 app.get('/seed/newrecipes', async function(req, res) {
 // recipes.get('/seed/newrecipes/viaseedfile', function(req, res) {
     Recipe.insertMany(recipeSeeds, function(err, recipes) {
-        if (err) { console.log(err); }
+        if (err) { console.log ( 'Error seeding db with recipes', err.message ); }
         else {
             res.send(recipes);
         }
