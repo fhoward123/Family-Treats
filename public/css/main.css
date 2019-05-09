@@ -40,6 +40,13 @@ h4 {
 h7 {
     font-family: 'Patrick Hand', cursive;
 }
+.welcome {
+    font-size: 26px;
+    font-family: 'Shadows Into Light', cursive;
+    width: 440px;
+    margin: auto;
+    padding-bottom: 2em;
+}
 .recipe {
     text-align: left;
     font-family: 'Shadows Into Light', cursive;
